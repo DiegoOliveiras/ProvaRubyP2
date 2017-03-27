@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pacientes</h1>
+
+<hr>
+<%= render 'formbusca'%>
+<hr>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>RG</th>
+      <th>CPF</th>
+      <th>Nascimento</th>
+      <th>Telefone</th>
+      <th>Email</th>
+      <th>Endereço</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pacientes.each do |paciente| %>
+      <tr>
+        <td><%= paciente.nome %></td>
+        <td><%= paciente.rg %></td>
+        <td><%= paciente.cpf %></td>
+        <td><%= paciente.nascimento %></td>
+        <td><%= paciente.telefone %></td>
+        <td><%= paciente.email %></td>
+        <td><%= paciente.endereco %></td>
+        <td>
+          <%= link_to ' ', edit_paciente_path(paciente),  class: "glyphicon glyphicon-pencil" %>
+          <%= link_to ' ', paciente, method: :delete, data: { confirm: 'Deseja excluir este cadastro?' } , class: "glyphicon glyphicon-trash" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%=will_paginate @pacientes, previous_label: "Anterior", next_label: "Próxima"%>
+
+<%= link_to 'Novo Paciente', new_paciente_path %>

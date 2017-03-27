@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Consultas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Hora</th>
+      <th>Dentista</th>
+      <th>Paciente</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @consultas.each do |consulta| %>
+      <tr>
+
+        <td><%= consulta.data %></td>
+        <td><%= consulta.hora %></td>
+        <td><%=consulta.dentista.nome if consulta.dentista %></td>
+        <td><%=consulta.paciente.nome if consulta.paciente %></td>
+        <td>
+          <%= link_to ' ', edit_consulta_path(consulta),  class: "glyphicon glyphicon-pencil" %>
+          <%= link_to ' ', consulta, method: :delete, data: { confirm: 'Deseja excluir este cadastro?' } , class: "glyphicon glyphicon-trash" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%=will_paginate @consultas, previous_label: "Anterior", next_label: "Próxima"%>
+
+<%= link_to 'Nova Consulta', new_consulta_path %>

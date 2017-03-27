@@ -3,6 +3,8 @@
  *= require_self
  *= require bootstrap-datepicker
  */
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -32,4 +34,12 @@ table {
 .foto {
   width: 90px;
   height: 120px;
+}
+
+#fleft{
+  float: left;
+}
+
+.field{
+  padding-right: 70px;
 }

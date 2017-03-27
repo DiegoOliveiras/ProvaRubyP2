@@ -1,0 +1,53 @@
+<%= form_for(@dentista) do |f| %>
+  <% if @dentista.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dentista.errors.count, "error") %> prohibited this dentista from being saved:</h2>
+
+      <ul>
+      <% @dentista.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br>
+  <div class="field" id="fleft">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :nascimento %><br>
+    <%= f.text_field :nascimento, class:'datepicker'%>
+  </div>
+  <div class="field" id="fleft">
+    <%= f.label :cro %><br>
+    <%= f.text_field :cro %>
+  </div>
+  <div class="field">
+    <%= f.label :especialidade %><br>
+    <%= f.text_field :especialidade %>
+  </div>
+  <div class="field" id="fleft">
+    <%= f.label :salario %><br>
+    <%= f.text_field :salario %>
+  </div>
+  <div class="field">
+    <%= f.label :endereco %><br>
+    <%= f.text_field :endereco, class:'tel'%>
+  </div>
+  <div class="field" id="fleft">
+    <%= f.label :rg %><br>
+    <%= f.text_field :rg, class:'rg'%>
+  </div>
+  <div class="field">
+    <%= f.label :cpf %><br>
+    <%= f.text_field :cpf, class:'cpf' %>
+  </div>
+
+  <br><hr>
+  <div class="actions">
+    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+    <%= link_to ' Voltar', dentistas_path ,  class: "btn btn-default " %>
+  </div>
+<% end %>

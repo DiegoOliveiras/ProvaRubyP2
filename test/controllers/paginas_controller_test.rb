@@ -6,9 +6,4 @@ class PaginasControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get localizacao" do
-    get :localizacao
-    assert_response :success
-  end
-
 end

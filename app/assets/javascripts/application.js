@@ -10,8 +10,16 @@
 //= require jquery.inputmask.numeric.extensions
 //= require jquery.inputmask.date.extensions
 
+//= require bootstrap-datepicker
+//= require jquery.inputmask
+//= require jquery.inputmask.extensions
+//= require jquery.inputmask.numeric.extensions
+//=require jquery.inputmask.date.extensions
 
 $(document).ready(function(){
-  $('.datepicker').datepicker({format: 'dd-mm-yyyy'});
-  $('#matricula').inputmask("9999.9.999.9999");  
+  $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
+  $('#hora').inputmask("99:99");  
+  $('.rg').inputmask("99.999.999-9");  
+  $('.cpf').inputmask("999.999.999-99");  
+  $('.tel').inputmask("(99) 9 9999-9999");  
 });

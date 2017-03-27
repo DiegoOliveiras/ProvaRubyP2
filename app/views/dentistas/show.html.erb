@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @dentista.nome %>
+</p>
+
+<p>
+  <strong>Especialidade:</strong>
+  <%= @dentista.especialidade %>
+</p>
+
+<p>
+  <strong>CRO:</strong>
+  <%= @dentista.cro %>
+</p>
+
+<p>
+  <strong>Salario:</strong>
+  <%= @dentista.salario %>
+</p>
+
+<p>
+  <strong>RG:</strong>
+  <%= @dentista.rg %>
+</p>
+
+<p>
+  <strong>CPF:</strong>
+  <%= @dentista.cpf %>
+</p>
+
+<p>
+  <strong>Nascimento:</strong>
+  <%= @dentista.nascimento %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @dentista.telefone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @dentista.email %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @dentista.endereco %>
+</p>
+
+
+<%= link_to 'Editar', edit_dentista_path(@dentista) %> |
+<%= link_to 'Voltar', dentistas_path %>

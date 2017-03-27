@@ -1,0 +1,60 @@
+<%= form_for(@paciente) do |f| %>
+  <% if @paciente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+
+      <ul>
+      <% @paciente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br><hr>
+  <div class="field" id="fleft">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field" >
+    <%= f.label :nascimento %><br>
+    <%= f.text_field :nascimento, class:'datepicker' %>
+  </div>
+  
+  <div class="field" id="fleft">
+    <%= f.label :rg %><br>
+    <%= f.text_field :rg, class:'rg'%>
+  </div>
+  <div class="field" >
+    <%= f.label :cpf %><br>
+    <%= f.text_field :cpf, class:'cpf' %>
+  </div>
+  
+  <div class="field" id="fleft">
+    <%= f.label :telefone %><br>
+    <%= f.text_field :telefone, class:'tel'%>
+  </div>
+  <div class="field" >
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field" id="fleft">
+    <%= f.label :endereco %><br>
+    <%= f.text_field :endereco %>
+  </div>
+
+  <div>
+      <%= f.label :foto %>
+      <%= image_tag @paciente.foto_url, class: 'foto'  if @paciente.foto? %>
+      <%= f.file_field :foto, label: 'Foto' , input_html: {accept: ('application/jpg') } %>
+    <br/>
+  </div>
+
+
+  <br><hr>
+  <div class="actions">
+    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+    <%= link_to ' Voltar', funcionarios_path ,  class: "btn btn-default " %>
+  </div>
+<% end %>

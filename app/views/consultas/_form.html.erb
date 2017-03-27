@@ -1,0 +1,36 @@
+<%= form_for(@consulta) do |f| %>
+  <% if @consulta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@consulta.errors.count, "error") %> prohibited this consulta from being saved:</h2>
+
+      <ul>
+      <% @consulta.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br>
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.text_field :data , class: 'datepicker'%>
+  </div>
+  <div class="field">
+    <%= f.label :hora %><br>
+    <%= f.text_field :hora, id: 'hora'%>
+  </div>
+  <div class="field>">
+    <%= f.label :dentista_id %><br>
+    <%= f.select :dentista_id, options_for_select(Dentista.all.map{|m|[m.nome, m.id]}, f.object.dentista_id) %>
+  </div>
+  <div class="field>">
+    <%= f.label :paciente_id %><br>
+    <%= f.select :paciente_id, options_for_select(Paciente.all.map{|m|[m.nome, m.id]}, f.object.paciente_id) %>
+  </div>
+  <br><hr>
+  <div class="actions">
+    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+    <%= link_to ' Voltar', funcionarios_path ,  class: "btn btn-default " %>
+  </div>
+<% end %>

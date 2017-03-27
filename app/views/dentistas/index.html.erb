@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dentistas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Especialidade</th>
+      <th>CRO</th>
+      <th>Salario</th>
+      <th>RG</th>
+      <th>CPF</th>
+      <th>Data de Nasc.</th>
+      <th>Telefone</th>
+      <th>Email</th>
+      <th>Endereço</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dentistas.each do |dentista| %>
+      <tr>
+        <td><%= dentista.nome %></td>
+        <td><%= dentista.especialidade %></td>
+        <td><%= dentista.cro %></td>
+        <td><%= dentista.salario %></td>
+        <td><%= dentista.rg %></td>
+        <td><%= dentista.cpf %></td>
+        <td><%= dentista.nascimento %></td>
+        <td><%= dentista.telefone %></td>
+        <td><%= dentista.email %></td>
+        <td><%= dentista.endereco %></td>
+        <td>
+          <%= link_to ' ', edit_dentista_path(dentista),  class: "glyphicon glyphicon-pencil" %>
+          <%= link_to ' ', dentista, method: :delete, data: { confirm: 'Deseja excluir este cadastro?' } , class: "glyphicon glyphicon-trash" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Dentista', new_dentista_path %>
