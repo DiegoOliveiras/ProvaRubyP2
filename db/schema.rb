@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20170327123120) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "consultas", force: :cascade do |t|
     t.date     "data"
     t.string   "hora"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20170327123120) do
     t.integer  "paciente_id"
   end
 
-  add_index "consultas", ["dentista_id"], name: "index_consultas_on_dentista_id"
-  add_index "consultas", ["paciente_id"], name: "index_consultas_on_paciente_id"
+  add_index "consultas", ["dentista_id"], name: "index_consultas_on_dentista_id", using: :btree
+  add_index "consultas", ["paciente_id"], name: "index_consultas_on_paciente_id", using: :btree
 
   create_table "dentistas", force: :cascade do |t|
     t.string   "nome"
@@ -40,19 +43,6 @@ ActiveRecord::Schema.define(version: 20170327123120) do
     t.string   "endereco"
   end
 
-  create_table "funcionarios", force: :cascade do |t|
-    t.string   "matricula"
-    t.string   "nome"
-    t.string   "endereco"
-    t.string   "telefone"
-    t.float    "salario"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "sexo"
-    t.date     "dtadmissao"
-    t.string   "foto"
-  end
-
   create_table "pacientes", force: :cascade do |t|
     t.string   "nome"
     t.string   "rg"
@@ -66,4 +56,6 @@ ActiveRecord::Schema.define(version: 20170327123120) do
     t.string   "endereco"
   end
 
+  add_foreign_key "consultas", "dentistas"
+  add_foreign_key "consultas", "pacientes"
 end
