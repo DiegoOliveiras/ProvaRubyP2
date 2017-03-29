@@ -1,0 +1,6 @@
+<%= form_tag(consultas_path, method: "get") do%>
+	<%= label_tag(:pdata, "Data:") %>	
+	<%= text_field_tag(:pdata,  @pdata, id: 'field_busca', class: 'datepicker2') %>
+
+	<%=submit_tag 'Buscar', :class => 'btn btn-default'%>
+<%end%>

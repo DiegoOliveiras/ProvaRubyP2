@@ -2,6 +2,11 @@
 
 <h1>Dentistas</h1>
 
+<br>
+<hr>
+<%= render 'formbusca'%>
+<hr>
+
 <table>
   <thead>
     <tr>
@@ -12,7 +17,7 @@
       <th>RG</th>
       <th>CPF</th>
       <th>Data de Nasc.</th>
-      <th>Telefone</th>
+      <th class='linha_telefone'>Telefone</th>
       <th>Email</th>
       <th>Endereço</th>
       <th colspan="3"></th>
@@ -29,7 +34,7 @@
         <td><%= dentista.rg %></td>
         <td><%= dentista.cpf %></td>
         <td><%= dentista.nascimento %></td>
-        <td><%= dentista.telefone %></td>
+        <td class='linha_telefone'><%= dentista.telefone %></td>
         <td><%= dentista.email %></td>
         <td><%= dentista.endereco %></td>
         <td>
@@ -41,6 +46,6 @@
   </tbody>
 </table>
 
-<br>
+<br><hr>
 
 <%= link_to 'Novo Dentista', new_dentista_path %>

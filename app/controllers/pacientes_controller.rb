@@ -22,7 +22,13 @@ class PacientesController < ApplicationController
   end
 
   def index 
-    @pacientes = Paciente.order("nome").paginate(page:params[:page], per_page: 10);
+    @pnome = params[:pnome]
+    filtro = "1=1"
+    if @pnome != nil
+        @pacientes = Paciente.where(filtro+" and nome like '"+ @pnome+"%'").order("nome").paginate(page:params[:page], per_page: 10);
+    else
+      @pacientes = Paciente.order("nome").paginate(page:params[:page], per_page: 10);
+    end
   end
 
   # POST /pacientes

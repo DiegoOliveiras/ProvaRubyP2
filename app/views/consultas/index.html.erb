@@ -2,6 +2,11 @@
 
 <h1>Consultas</h1>
 
+<br>
+<hr>
+<%= render 'formbusca'%>
+<hr>
+
 <table>
   <thead>
     <tr>
@@ -30,7 +35,7 @@
   </tbody>
 </table>
 
-<br>
+<br><hr>
 
 <%=will_paginate @consultas, previous_label: "Anterior", next_label: "Próxima"%>
 

@@ -22,7 +22,13 @@ class DentistasController < ApplicationController
   end
 
   def index 
-    @dentistas = Dentista.order("nome").paginate(page:params[:page], per_page: 10);
+    @pnome = params[:pnome]
+    filtro = "1=1"
+    if @pnome != nil
+        @dentistas = Dentista.where(filtro+" and nome like '"+ @pnome+"%'").order("nome").paginate(page:params[:page], per_page: 10);
+    else
+      @dentistas = Dentista.order("nome").paginate(page:params[:page], per_page: 10);
+    end
   end
 
   # POST /dentistas

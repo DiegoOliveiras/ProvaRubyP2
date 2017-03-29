@@ -33,8 +33,8 @@
     <%= f.text_field :salario %>
   </div>
   <div class="field">
-    <%= f.label :endereco %><br>
-    <%= f.text_field :endereco, class:'tel'%>
+    <%= f.label :telefone %><br>
+    <%= f.text_field :telefone, class:'tel'%>
   </div>
   <div class="field" id="fleft">
     <%= f.label :rg %><br>
@@ -43,6 +43,14 @@
   <div class="field">
     <%= f.label :cpf %><br>
     <%= f.text_field :cpf, class:'cpf' %>
+  </div>
+  <div class="field" id="fleft">
+    <%= f.label :email %><br>
+    <%= f.text_field :email%>
+  </div>
+  <div class="field">
+    <%= f.label :endereco %><br>
+    <%= f.text_field :endereco, id:'endereco'%>
   </div>
 
   <br><hr>

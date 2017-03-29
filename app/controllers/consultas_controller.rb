@@ -22,7 +22,14 @@ class ConsultasController < ApplicationController
   end
 
   def index 
-    @consultas = Consulta.order("data").paginate(page:params[:page], per_page: 10);
+    @pdata = params[:pdata]
+    filtro = "1=1"
+
+    if !@pdata.nil? && !@pdata.empty?
+      @consultas = Consulta.where(filtro+" and data == '"+@pdata+"'").order("data").paginate(page:params[:page], per_page: 10);
+    else
+      @consultas = Consulta.order("data").paginate(page:params[:page], per_page: 10);
+    end
   end
 
   def listar

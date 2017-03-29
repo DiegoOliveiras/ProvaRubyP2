@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   resources :pacientes
   resources :dentistas
-  resources :funcionarios
   get 'paginas/index'
 
   root :to => 'paginas#index'

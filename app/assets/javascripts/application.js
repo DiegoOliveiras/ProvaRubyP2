@@ -18,6 +18,7 @@
 
 $(document).ready(function(){
   $('.datepicker').datepicker({format: 'dd/mm/yyyy'});
+  $('.datepicker2').datepicker({format: 'yyyy-mm-dd'});
   $('#hora').inputmask("99:99");  
   $('.rg').inputmask("99.999.999-9");  
   $('.cpf').inputmask("999.999.999-99");  
